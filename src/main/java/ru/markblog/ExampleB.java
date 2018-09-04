@@ -3,25 +3,12 @@ package ru.markblog;
 import org.springframework.stereotype.Component;
 
 @Component
-public class A {
+public class ExampleB {
 
     private String name;
-    private B b;
 
-    public A(B b){
-        this.b=b;
-    }
-
-    public void print(){
-        System.out.println(b.getName());
-    }
-
-    public B getB() {
-        return b;
-    }
-
-    public void setB(B b) {
-        this.b = b;
+    public ExampleB(){
+        System.out.println("B constructor!");
     }
 
     public String getName() {

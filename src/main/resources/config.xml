@@ -4,9 +4,9 @@
 
 <beans>
 
-    <bean id="A" class="ru.markblog.A">
+    <bean id="A" class="ru.markblog.ExampleA">
         <property name="name" value="A bean"></property>
-        <property name="b">
+        <property name="exampleB">
             <ref bean="B" />
         </property>
         <constructor-arg>
@@ -15,8 +15,10 @@
 
     </bean>
 
-    <bean id="B" class="ru.markblog.B" scope="prototype">
+    <bean id="B" class="ru.markblog.ExampleB" scope="prototype">
         <property name="name" value="B bean"></property>
     </bean>
+
+    <bean id="factory" class="ru.markblog.BeanFactory"></bean>
 
 </beans>
