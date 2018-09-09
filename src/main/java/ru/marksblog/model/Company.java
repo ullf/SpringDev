@@ -6,21 +6,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="companies")
+@Table(name = "companies")
 public class Company {
 
     @Id
     private int id;
-    @Column(name="comp_name")
+    @Column(name = "comp_name")
     private String compname;
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
-    @Column(name="address")
+    @Column(name = "address")
     private String address;
 
-    public Company(){
+    public Company() {
 
     }
+
 
     public int getId() {
         return id;

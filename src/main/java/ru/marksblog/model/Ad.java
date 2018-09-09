@@ -1,24 +1,26 @@
 package ru.marksblog.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="Ads")
+@Table(name = "Ads")
 public class Ad {
 
     @Id
     private int id;
-    @Column(name="category")
-    @ManyToOne
+    @Column(name = "category")
     private String category;
-    @Column(name="ad_name")
+    @Column(name = "ad_name")
     private String adname;
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
-    @Column(name="phone")
+    @Column(name = "phone")
     private int phone;
 
-    public Ad(){
+    public Ad() {
 
     }
 
@@ -60,5 +62,10 @@ public class Ad {
 
     public void setPhone(int phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return getAdname() + " " + getCategory();
     }
 }

@@ -6,15 +6,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Categories")
+@Table(name = "Categories")
 public class Category {
 
     @Id
     private int id;
-    @Column(name="cat_name")
+    @Column(name = "cat_name")
     private String catname;
 
-    public Category(){
+    public Category() {
 
     }
 
