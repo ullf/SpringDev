@@ -66,6 +66,6 @@ public class Ad {
 
     @Override
     public String toString() {
-        return getAdname() + " " + getCategory();
+        return getAdname() + " " + getCategory() + " " + getDescription();
     }
 }
