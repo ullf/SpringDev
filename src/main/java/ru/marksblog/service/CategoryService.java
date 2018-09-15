@@ -15,6 +15,10 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
+    public void persist(Object obj) {
+        categoryRepository.persist(obj);
+    }
+
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }

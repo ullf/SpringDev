@@ -32,12 +32,22 @@
 </form:form>
 
 <h1>List of ads</h1>
+<table style="width:30%">
+<tr>
+    <th>Ad name</th>
+    <th>Category</th>
+    <th>Phone number</th>
+    <th>Description</th>
+</tr>
 <c:forEach items="${ads}"  var = "ad">
-    Name: <c:out value = "${ad.adname}"/><p>
-    Category: <c:out value = "${ad.category}"/><p>
-    Phone: <c:out value = "${ad.phone}"/><p>
-    Description: <c:out value = "${ad.description}"/><p>
+    <tr>
+        <td><c:out value = "${ad.adname}"/></td>
+        <td><c:out value = "${ad.category}"/></td>
+        <td><c:out value = "${ad.phone}"/></td>
+        <td><c:out value = "${ad.description}"/></td>
+    </tr>
 </c:forEach>
+</table>
 </body>
 
 </html>

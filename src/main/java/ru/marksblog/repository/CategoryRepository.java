@@ -27,7 +27,7 @@ public class CategoryRepository {
     }
 
     public List<Category> findAll() {
-        Query query = entityManager.createQuery("SELECT c FROM Category c WHERE c.id=:id", Category.class);
+        Query query = entityManager.createQuery("SELECT c FROM Category c", Category.class);
         return query.getResultList();
     }
 
