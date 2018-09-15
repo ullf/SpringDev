@@ -6,10 +6,7 @@ import ru.marksblog.model.Company;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> master
 
 @Repository
 public class CompanyRepository {
@@ -34,7 +31,6 @@ public class CompanyRepository {
         query.setParameter("id", id);
         query.executeUpdate();
     }
-<<<<<<< HEAD
 
     public List<Company> findAll() {
         Query query = entityManager.createQuery("SELECT company FROM Company company", Company.class);
@@ -50,6 +46,4 @@ public class CompanyRepository {
         query.executeUpdate();
     }
 
-=======
->>>>>>> master
 }
