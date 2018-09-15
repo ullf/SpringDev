@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.marksblog.model.Company;
 import ru.marksblog.repository.CompanyRepository;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CompanyService {
@@ -23,5 +25,13 @@ public class CompanyService {
 
     public void deleteById(int id) {
         companyRepository.deleteById(id);
+    }
+
+    public List<Company> findAll() {
+        return companyRepository.findAll();
+    }
+
+    public void updateById(int id, String compname, String address, String description) {
+        companyRepository.updateById(id, compname, address, description);
     }
 }

@@ -19,6 +19,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("ru.marksblog")
+//@EnableWebMvc
 public class Config {
 
     @Bean
@@ -60,4 +61,13 @@ public class Config {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
+
+    /*@Bean
+    public UrlBasedViewResolver setupViewResolver() {
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+        resolver.setPrefix("/WEB-INF/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        return resolver;
+    }*/
 }

@@ -1,15 +1,13 @@
 package ru.marksblog.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "companies")
 public class Company {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "comp_name")
     private String compname;
