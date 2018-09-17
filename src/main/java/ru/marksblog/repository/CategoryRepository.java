@@ -36,4 +36,8 @@ public class CategoryRepository {
         query.setParameter("id", id);
         query.executeUpdate();
     }
+
+    public void update(Category category) {
+        entityManager.merge(category);
+    }
 }

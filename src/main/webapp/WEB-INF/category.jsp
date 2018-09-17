@@ -9,6 +9,17 @@ Category name: <form:input path = "catname" /><br>
     <input type="submit" value="add category" /><br>
 </form:form>
 
+<form:form action="categoryDelete" method="POST" modelAttribute="category">
+Category id: <form:input path = "id" /><br>
+    <input type="submit" value="delete category" /><br>
+</form:form>
+
+<form:form action="categoryUpdate" method="POST" modelAttribute="category">
+Category id: <form:input path = "id" /><br>
+Category name: <form:input path = "catname" /><br>
+    <input type="submit" value="update category" /><br>
+</form:form>
+
 <table style="width:30%; text-align:center">
 <tr>
     <th>Id</th>
