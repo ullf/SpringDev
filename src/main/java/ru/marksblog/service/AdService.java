@@ -35,8 +35,8 @@ public class AdService {
         adRepository.deleteById(id);
     }
 
-    public void updateById(int id, String adname, String category, String description, int phone) {
-        adRepository.updateById(id, adname, category, description, phone);
+    public void updateById(Ad ad) {
+        adRepository.updateById(ad);
     }
 
     public List<Ad> getAllByCategory(String category) {

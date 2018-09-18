@@ -40,7 +40,7 @@ public class CompanyController {
 
     @RequestMapping(path = "/companyupdate", method = RequestMethod.POST)
     public String companyUpdate(@ModelAttribute("company") Company company) {
-        companyService.updateById(company.getId(), company.getCompname(), company.getAddress(), company.getDescription());
+        companyService.updateById(company);
         return "redirect:/company";
     }
 }

@@ -4,7 +4,7 @@
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
 <body>
-
+<jsp:include page="menu.jsp" />
 <h1>Add a new company</h1>
 <form:form action = "companyadd" method = "POST" modelAttribute="company">
 Name: <form:input path = "compname" /><br />
@@ -29,11 +29,19 @@ Id of a company: <form:input path = "id" /><br />
 </form:form>
 
 <h1>List of companies</h1>
+<table style="width:30%; text-align:center">
+<tr>
+    <th>Company name</th>
+    <th>Address</th>
+    <th>Description</th>
+</tr>
 <c:forEach items="${companies}"  var = "compies">
-    Name: <c:out value = "${compies.compname}"/><p>
-    Address: <c:out value = "${compies.address}"/><p>
-    Description: <c:out value = "${compies.description}"/><p>
+<tr>
+    <td><c:out value = "${compies.compname}"/></td>
+    <td><c:out value = "${compies.address}"/></td>
+    <td><c:out value = "${compies.description}"/></td>
+</tr>
 </c:forEach>
-
+</table>
 </body>
 </html>

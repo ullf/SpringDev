@@ -3,9 +3,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
-
 <body>
-
+<jsp:include page="menu.jsp" />
 <h1>Add a new ad</h1>
 <form:form action="adAdd" method="POST" modelAttribute="ad">
     Name: <form:input path = "adname" /><br />
@@ -32,7 +31,7 @@
 </form:form>
 
 <h1>List of ads</h1>
-<table style="width:30%">
+<table style="width:30%; text-align:center">
 <tr>
     <th>Ad name</th>
     <th>Category</th>

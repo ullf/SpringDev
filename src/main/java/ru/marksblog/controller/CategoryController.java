@@ -3,13 +3,14 @@ package ru.marksblog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ru.marksblog.model.Category;
 import ru.marksblog.service.CategoryService;
 
 import java.util.List;
 
-//@RestController
 @Controller
 public class CategoryController {
 
@@ -23,16 +24,6 @@ public class CategoryController {
         List<Category> cateogryList = categoryService.findAll();
         model.addAttribute("categories", cateogryList);
         return "category";
-    }
-
-    @GetMapping(path = "/api", produces = "application/json")
-    public List<Category> json() {
-        return categoryService.findAll();
-    }
-
-    @GetMapping(path = "/api/{id}", produces = "application/json")
-    public Category getcat(@PathVariable("id") Integer id) {
-        return categoryService.findById(id);
     }
 
     @RequestMapping(path = "/categoryAdd", method = RequestMethod.POST)

@@ -37,14 +37,8 @@ public class AdRepository {
         query.executeUpdate();
     }
 
-    public void updateById(int id, String adname, String category, String description, int phone) {
-        Query query = entityManager.createQuery("UPDATE Ad ad SET ad.adname=:adname,ad.category=:category,ad.description=:description,ad.phone=:phone WHERE ad.id=:id");
-        query.setParameter("id", id);
-        query.setParameter("adname", adname);
-        query.setParameter("category", category);
-        query.setParameter("description", description);
-        query.setParameter("phone", phone);
-        query.executeUpdate();
+    public void updateById(Ad ad) {
+        entityManager.merge(ad);
     }
 
     public List<Ad> getAllByCategory(String category) {

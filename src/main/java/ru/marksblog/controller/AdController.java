@@ -40,7 +40,7 @@ public class AdController {
 
     @RequestMapping(path = "/adUpdate", method = RequestMethod.POST)
     public String adUpdate(@ModelAttribute("ad") Ad ad) {
-        adService.updateById(ad.getId(), ad.getAdname(), ad.getCategory(), ad.getDescription(), ad.getPhone());
+        adService.updateById(ad);
         return "redirect:/ad";
     }
 }

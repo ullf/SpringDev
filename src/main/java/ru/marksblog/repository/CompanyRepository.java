@@ -37,13 +37,8 @@ public class CompanyRepository {
         return query.getResultList();
     }
 
-    public void updateById(int id, String compname, String address, String description) {
-        Query query = entityManager.createQuery("UPDATE Company comp SET comp.compname=:compname,comp.description=:description,comp.address=:address WHERE comp.id=:id");
-        query.setParameter("id", id);
-        query.setParameter("compname", compname);
-        query.setParameter("address", address);
-        query.setParameter("description", description);
-        query.executeUpdate();
+    public void updateById(Company company) {
+        entityManager.merge(company);
     }
 
 }
