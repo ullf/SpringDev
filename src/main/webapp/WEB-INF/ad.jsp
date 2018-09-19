@@ -8,6 +8,7 @@
 <h1>Add a new ad</h1>
 <form:form action="adAdd" method="POST" modelAttribute="ad">
     Name: <form:input path = "adname" /><br />
+    Company name: <form:input path = "company" /><br />
     Category: <form:input path = "category" /><br />
     Phone: <form:input path = "phone" /><br />
     Description: <form:input path = "description" /><br />
@@ -18,6 +19,7 @@
 <form:form action="adUpdate" method="POST" modelAttribute="ad">
     Id of the ad: <form:input path = "id" /><br />
     Name: <form:input path = "adname" /><br />
+    Company name: <form:input path = "company" /><br />
     Category: <form:input path = "category" /><br />
     Phone: <form:input path = "phone" /><br />
     Description: <form:input path = "description" /><br />
@@ -30,10 +32,36 @@
     <input type = "submit" value = "delete ad" />
 </form:form>
 
+<h1>Find ad by category</h1>
+<form:form action="getAllByCategory" method="POST" modelAttribute="ad">
+    Category: <form:input path = "category" /><br />
+    <input type = "submit" value = "find" />
+</form:form>
+
+<table style="width:30%; text-align:center">
+<tr>
+    <th>Ad name</th>
+    <th>Company name</th>
+    <th>Category</th>
+    <th>Phone number</th>
+    <th>Description</th>
+</tr>
+<c:forEach items="${catads}"  var = "ad">
+    <tr>
+        <td><c:out value = "${ad.adname}"/></td>
+        <td><c:out value = "${ad.company}"/></td>
+        <td><c:out value = "${ad.category}"/></td>
+        <td><c:out value = "${ad.phone}"/></td>
+        <td><c:out value = "${ad.description}"/></td>
+    </tr>
+</c:forEach>
+</table>
+
 <h1>List of ads</h1>
 <table style="width:30%; text-align:center">
 <tr>
     <th>Ad name</th>
+    <th>Company name</th>
     <th>Category</th>
     <th>Phone number</th>
     <th>Description</th>
@@ -41,6 +69,7 @@
 <c:forEach items="${ads}"  var = "ad">
     <tr>
         <td><c:out value = "${ad.adname}"/></td>
+        <td><c:out value = "${ad.company}"/></td>
         <td><c:out value = "${ad.category}"/></td>
         <td><c:out value = "${ad.phone}"/></td>
         <td><c:out value = "${ad.description}"/></td>

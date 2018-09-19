@@ -1,17 +1,14 @@
 package ru.marksblog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.marksblog.model.Ad;
 import ru.marksblog.service.AdService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/ad")
+@RequestMapping(path = "/Api/ad")
 public class AdApi {
 
     @Autowired
@@ -25,5 +22,17 @@ public class AdApi {
     @GetMapping(path = "/{id}", produces = "application/json")
     public Ad getCategoryById(@PathVariable("id") Integer id) {
         return adService.findById(id);
+    }
+
+    @PutMapping(path = "/update", produces = "application/json", consumes = "application/json")
+    public Ad update(Ad ad) {
+        adService.update(ad);
+        return ad;
+    }
+
+    @DeleteMapping(path = "/deleteById", produces = "application/json", consumes = "application/json")
+    public String deleteById(Ad ad) {
+        adService.deleteById(ad.getId());
+        return "redirect:/ad";
     }
 }

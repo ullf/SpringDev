@@ -9,11 +9,13 @@ public class Ad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "category")
+    @Column(name = "category", unique = true, nullable = false)
     private String category;
-    @Column(name = "ad_name")
+    @Column(name = "ad_name", unique = true, nullable = false)
     private String adname;
-    @Column(name = "description")
+    @Column(name = "company", nullable = false)
+    private String company;
+    @Column(name = "description", nullable = false)
     private String description;
     @Column(name = "phone")
     private int phone;
@@ -44,6 +46,14 @@ public class Ad {
 
     public void setAdname(String adname) {
         this.adname = adname;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getDescription() {

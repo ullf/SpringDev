@@ -14,6 +14,7 @@ public class AdService {
 
     @Autowired
     AdRepository adRepository;
+    int a = 5;
 
     public void persist(Object obj) {
         if (obj != null) {
@@ -35,8 +36,8 @@ public class AdService {
         adRepository.deleteById(id);
     }
 
-    public void updateById(Ad ad) {
-        adRepository.updateById(ad);
+    public void update(Ad ad) {
+        adRepository.update(ad);
     }
 
     public List<Ad> getAllByCategory(String category) {

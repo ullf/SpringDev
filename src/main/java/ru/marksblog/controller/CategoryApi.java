@@ -1,17 +1,14 @@
 package ru.marksblog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.marksblog.model.Category;
 import ru.marksblog.service.CategoryService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/category")
+@RequestMapping(path = "/Api/category")
 public class CategoryApi {
 
     @Autowired
@@ -25,5 +22,23 @@ public class CategoryApi {
     @GetMapping(path = "/{id}", produces = "application/json")
     public Category getCategoryById(@PathVariable("id") Integer id) {
         return categoryService.findById(id);
+    }
+
+    @PostMapping(path = "/persist", produces = "application/json", consumes = "application/json")
+    public Category persist(Category category) {
+        categoryService.persist(category);
+        return category;
+    }
+
+    @PutMapping(path = "/update", produces = "application/json", consumes = "application/json")
+    public Category update(Category category) {
+        categoryService.update(category);
+        return category;
+    }
+
+    @DeleteMapping(path = "/deleteById", produces = "application/json", consumes = "application/json")
+    public String deleteById(Category category) {
+        categoryService.deleteById(category.getId());
+        return "redirect:/category";
     }
 }

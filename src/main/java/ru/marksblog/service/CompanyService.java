@@ -31,7 +31,7 @@ public class CompanyService {
         return companyRepository.findAll();
     }
 
-    public void updateById(Company company) {
-        companyRepository.updateById(company);
+    public void update(Company company) {
+        companyRepository.update(company);
     }
 }

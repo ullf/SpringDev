@@ -37,7 +37,7 @@ public class AdRepository {
         query.executeUpdate();
     }
 
-    public void updateById(Ad ad) {
+    public void update(Ad ad) {
         entityManager.merge(ad);
     }
 

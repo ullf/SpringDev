@@ -37,7 +37,7 @@ public class CompanyRepository {
         return query.getResultList();
     }
 
-    public void updateById(Company company) {
+    public void update(Company company) {
         entityManager.merge(company);
     }
 

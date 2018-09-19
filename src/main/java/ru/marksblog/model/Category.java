@@ -9,7 +9,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "cat_name")
+    @Column(name = "cat_name", unique = true, nullable = false)
     private String catname;
 
     public Category() {

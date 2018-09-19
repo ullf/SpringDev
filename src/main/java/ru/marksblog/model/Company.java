@@ -9,11 +9,11 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "comp_name")
+    @Column(name = "comp_name", unique = true, nullable = false)
     private String compname;
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
 
     public Company() {

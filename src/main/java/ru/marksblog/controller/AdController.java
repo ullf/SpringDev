@@ -43,4 +43,11 @@ public class AdController {
         adService.updateById(ad);
         return "redirect:/ad";
     }
+
+    @RequestMapping(path = "/getAllByCategory", method = RequestMethod.POST)
+    public String getAllByCategory(@ModelAttribute("ad") Ad ad, ModelMap model) {
+        List<Ad> ads = adService.getAllByCategory(ad.getCategory());
+        model.addAttribute("catads", ads);
+        return "ad";
+    }
 }
