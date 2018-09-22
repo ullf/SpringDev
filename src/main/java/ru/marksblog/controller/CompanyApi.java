@@ -24,6 +24,12 @@ public class CompanyApi {
         return companyService.findById(id);
     }
 
+    @PostMapping(path = "/persist", produces = "application/json", consumes = "application/json")
+    public Company persist(Company company) {
+        companyService.persist(company);
+        return company;
+    }
+
     @PutMapping(path = "/update", produces = "application/json", consumes = "application/json")
     public Company update(Company company) {
         companyService.update(company);
@@ -33,6 +39,6 @@ public class CompanyApi {
     @DeleteMapping(path = "/deleteById", produces = "application/json", consumes = "application/json")
     public String deleteById(Company company) {
         companyService.deleteById(company.getId());
-        return "redirect:/company";
+        return "redirect:admin/company";
     }
 }

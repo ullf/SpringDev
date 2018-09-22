@@ -17,30 +17,30 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @RequestMapping(path = "/category")
+    @RequestMapping(path = "/admin/category")
     public String category(ModelMap model) {
         Category category1 = new Category();
         model.addAttribute("category", category1);
         List<Category> cateogryList = categoryService.findAll();
         model.addAttribute("categories", cateogryList);
-        return "category";
+        return "admin/category";
     }
 
     @RequestMapping(path = "/categoryAdd", method = RequestMethod.POST)
     public String categoryAdd(@ModelAttribute("category") Category category) {
         categoryService.persist(category);
-        return "redirect:/category";
+        return "redirect:admin/category";
     }
 
     @RequestMapping(path = "/categoryDelete", method = RequestMethod.POST)
     public String categoryDelete(@ModelAttribute("category") Category category) {
         categoryService.deleteById(category.getId());
-        return "redirect:/category";
+        return "redirect:admin/category";
     }
 
     @RequestMapping(path = "categoryUpdate", method = RequestMethod.POST)
     public String categoryUpdate(@ModelAttribute("category") Category category) {
         categoryService.update(category);
-        return "redirect:/category";
+        return "redirect:admin/category";
     }
 }

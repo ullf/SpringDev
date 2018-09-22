@@ -24,6 +24,12 @@ public class AdApi {
         return adService.findById(id);
     }
 
+    @PostMapping(path = "/persist", produces = "application/json", consumes = "application/json")
+    public Ad persist(Ad ad) {
+        adService.persist(ad);
+        return ad;
+    }
+
     @PutMapping(path = "/update", produces = "application/json", consumes = "application/json")
     public Ad update(Ad ad) {
         adService.update(ad);
@@ -33,6 +39,6 @@ public class AdApi {
     @DeleteMapping(path = "/deleteById", produces = "application/json", consumes = "application/json")
     public String deleteById(Ad ad) {
         adService.deleteById(ad.getId());
-        return "redirect:/ad";
+        return "redirect:admin/ad";
     }
 }

@@ -4,9 +4,9 @@
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
 <body>
-<jsp:include page="menu.jsp" />
+<jsp:include page="../menu.jsp" />
 <h1>Add a new company</h1>
-<form:form action = "companyadd" method = "POST" modelAttribute="company">
+<form:form action = "../companyadd" method = "POST" modelAttribute="company">
 Name: <form:input path = "compname" /><br />
 Address: <form:input path = "address" /><br />
 Description: <form:input path = "description" /><br />
@@ -14,7 +14,7 @@ Description: <form:input path = "description" /><br />
 </form:form>
 
 <h1>Update information about company</h1>
-<form:form action = "companyupdate" method = "POST" modelAttribute="company">
+<form:form action = "../companyupdate" method = "POST" modelAttribute="company">
 Id of a company: <form:input path = "id" /><br />
 Name: <form:input path = "compname" /><br />
 Address: <form:input path = "address" /><br />
@@ -23,7 +23,7 @@ Description: <form:input path = "description" /><br />
 </form:form>
 
 <h1>Delete company</h1>
-<form:form action = "companydelete" method = "POST" modelAttribute="company">
+<form:form action = "../companydelete" method = "POST" modelAttribute="company">
 Id of a company: <form:input path = "id" /><br />
 <input type = "submit" value = "delete company" />
 </form:form>

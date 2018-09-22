@@ -39,6 +39,6 @@ public class CategoryApi {
     @DeleteMapping(path = "/deleteById", produces = "application/json", consumes = "application/json")
     public String deleteById(Category category) {
         categoryService.deleteById(category.getId());
-        return "redirect:/category";
+        return "redirect:admin/category";
     }
 }
