@@ -1,6 +1,7 @@
 package ru.marksblog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +18,8 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(path = "/user")
     public String company(ModelMap model) {
@@ -27,6 +30,8 @@ public class UserController {
 
     @PostMapping(path = "/adduser")
     public String addUser(@ModelAttribute("user") User user) {
+        String password = bCryptPasswordEncoder.encode(user.getUserpassword());
+        user.setUserpassword(password);
         userService.persist(user);
         return "redirect:/user";
     }
@@ -50,14 +55,15 @@ public class UserController {
 
     @PostMapping(path = "/authuser")
     public String authUser(@ModelAttribute("user") User user, HttpServletRequest req, HttpSession session) {
-        userService.auth(user.getUsername(), user.getUserpassword());
-        if (!user.getUserpassword().equals(null) && !user.getUsername().equals(null)) {
-            session = req.getSession();
-            session.setAttribute("username", user.getUsername());
-            session.setAttribute("password", user.getUserpassword());
-            return "success";
-        } else {
-            return "user";
+        boolean bool = userService.auth(user.getUsername(), user.getUserpassword());
+        if (bool) {
+            if (bCryptPasswordEncoder.matches(user.getUserpassword(), userService.getPasswordByUsername(user.getUsername()))) {
+                session = req.getSession();
+                session.setAttribute("username", user.getUsername());
+                session.setAttribute("password", user.getUserpassword());
+                return "success";
+            }
         }
+        return "user";
     }
 }

@@ -30,10 +30,18 @@ public class UserRepository {
         entityManager.merge(user);
     }
 
-    public void auth(String username, String password) {
+    public boolean auth(String username, String password) {
         HttpSession session;
         Query query = entityManager.createQuery("SELECT user FROM User user WHERE user.username=:username and user.userpassword=:password", User.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
+        return query.getResultList().isEmpty();
+    }
+
+    public String getPasswordByUsername(String username) {
+        Query query = entityManager.createQuery("SELECT user FROM User user WHERE user.username=:username", User.class);
+        query.setParameter("username", username);
+        User user = (User) query.getResultList().get(0);
+        return user.getUserpassword();
     }
 }

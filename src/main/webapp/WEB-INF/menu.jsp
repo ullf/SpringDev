@@ -9,9 +9,9 @@
 <body>
 <jsp:include page="style.css" />
 <ul>
-    <li><a href="company">Company</a></li>
-    <li><a href="category">Categories</a></li>
-    <li><a href="ad">ads</a></li>
+    <li><a href="admin/company">Company</a></li>
+    <li><a href="admin/category">Categories</a></li>
+    <li><a href="admin/ad">ads</a></li>
 </ul>
 </body>
 </html>

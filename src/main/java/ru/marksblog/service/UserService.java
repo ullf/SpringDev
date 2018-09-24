@@ -25,7 +25,11 @@ public class UserService {
         userRepository.deleteByUsername(username);
     }
 
-    public void auth(String username, String password) {
-        userRepository.auth(username, password);
+    public boolean auth(String username, String password) {
+        return userRepository.auth(username, password);
+    }
+
+    public String getPasswordByUsername(String username) {
+        return userRepository.getPasswordByUsername(username);
     }
 }
